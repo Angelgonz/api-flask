@@ -14,9 +14,9 @@ pandas==1.4.3
 python-dateutil==2.8.2
 pytz==2022.1
 regex==2022.7.9
-sklearn==0.22
 scipy==1.8.1
 six==1.16.0
+scikit-learn==1.1.1
 threadpoolctl==3.1.0
 tqdm==4.64.0
 Werkzeug==2.1.2

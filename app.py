@@ -373,7 +373,7 @@ def listar_Email():
 #------------------------
         #print('Accuracy: {:.3f}'.format(accuracy_score(y_test, y_pred)))
 #--------------------------------
-#----------------------------
+#----------------------------app.run(threaded=True, port=5000)
 
 
 #---------------------
@@ -395,4 +395,4 @@ def pagina_no_encontrada(error):
 if __name__ == '__main__':
     app.config.from_object(config['development'])
     app.register_error_handler(404,pagina_no_encontrada)
-    app.run()
+    app.run(threaded=True, port=5000)

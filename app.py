@@ -1,8 +1,8 @@
 #from asyncore import write
 #from re import L
 #import sqlite3
-from unicodedata import name
-from colorama import Cursor
+#from unicodedata import name
+#from colorama import Cursor
 from flask import Flask, request,jsonify
 from config import config
 from flask_mysqldb import MySQL

@@ -1,3 +1,4 @@
+from crypt import methods
 from re import L
 import sqlite3
 from unicodedata import name
@@ -175,7 +176,7 @@ def create_prep_dataset(index_path, n_elements):
 
 
 
-@app.route('/')
+@app.route('/mail/',methods=['GET'])
 def listar_Email():
     try:
 

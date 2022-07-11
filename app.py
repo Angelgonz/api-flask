@@ -324,9 +324,9 @@ def listar_Email():
         print('Accuracy: {:.3f}'.format(accuracy_score(y_test, y_pred)))
 """
 
-        sqlfinal=sql4="SELECT * from angel.index limit 5000"
+        sqlfinal=sql4="SELECT * from angel.index limit 500"
         # Leemos 12000 correos electrónicos
-        X, y = create_prep_dataset(sqlfinal, 5000)
+        X, y = create_prep_dataset(sqlfinal, 500)
         spam=0
         inc=0
         ham=0
@@ -334,7 +334,7 @@ def listar_Email():
             #print(i)
             inc+=1
             
-            if inc>=1 and inc<=4500:
+            if inc>=1 and inc<=450:
 
                 if i=="spam":
                     spam+=1
@@ -350,8 +350,8 @@ def listar_Email():
 
 
 # Utilizamos 10000 correos electrónicos para entrenar el algoritmo y 2000 para realizar pruebas
-        X_train, y_train = X[:4500], y[:4500]
-        X_test, y_test = X[500:], y[500:]
+        X_train, y_train = X[:450], y[:450]
+        X_test, y_test = X[50:], y[50:]
         #print("-------------------este es el train")
         #print("")
         #print(X_train)

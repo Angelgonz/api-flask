@@ -175,7 +175,7 @@ def create_prep_dataset(index_path, n_elements):
 
 
 
-@app.route('/')
+@app.route('/mail')
 def listar_Email():
     try:
 

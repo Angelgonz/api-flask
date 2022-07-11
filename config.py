@@ -1,3 +1,6 @@
+from distutils.log import debug
+
+
 class develomentConfig():
     MYSQL_HOST='angel.cbk7spjlzjy0.us-east-2.rds.amazonaws.com'
     MYSQL_USER='admin'

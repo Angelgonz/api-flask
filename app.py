@@ -1,4 +1,4 @@
-from crypt import methods
+from asyncore import write
 from re import L
 import sqlite3
 from unicodedata import name
@@ -49,14 +49,24 @@ strip_tags(t)
 import email
 import string
 import nltk
-nltk.download('stopwords')
-#---------seccion 2 del machine
-
+nltk.download('stopwords',download_dir='./da/')
+#------------
 class Parser:
 
     def __init__(self):
+
+
         self.stemmer = nltk.PorterStemmer()
-        self.stopwords = set(nltk.corpus.stopwords.words('english'))
+        #print(nltk.PorterStemmer())
+        o=open("da/corpora/stopwords/english").readlines()
+        #print (o)
+        im=[]
+        for h in o:
+            im.append(h.rstrip())
+        
+        self.stopwords = set(im)
+        #print(nltk.corpus.stopwords.words('english'))
+        #print(nltk.corpus.stopwords.words('english'))
         self.punctuation = list(string.punctuation)
         
 
@@ -175,12 +185,17 @@ def create_prep_dataset(index_path, n_elements):
 
 
 
-
+import csv
 @app.route('/mail/',methods=['GET'])
 def listar_Email():
     try:
 
-        
+        o=open("da/corpora/stopwords/english").readlines()
+        #print (o)
+        im=[]
+        for h in o: 
+            im.append(h.rstrip())
+        print(im)
         """"
         #mail="inmail.2"
         #cursor= conexion.connection.cursor()
@@ -396,4 +411,4 @@ def pagina_no_encontrada(error):
 if __name__ == '__main__':
     app.config.from_object(config['development'])
     app.register_error_handler(404,pagina_no_encontrada)
-    app.run()
+    app.run(debug=True, port=5000)

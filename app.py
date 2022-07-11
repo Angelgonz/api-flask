@@ -190,13 +190,6 @@ def create_prep_dataset(index_path, n_elements):
 @app.route('/mail/',methods=['GET'])
 def listar_Email():
     try:
-
-        o=open("da/corpora/stopwords/english").readlines()
-        #print (o)
-        im=[]
-        for h in o: 
-            im.append(h.rstrip())
-        print(im)
         """"
         #mail="inmail.2"
         #cursor= conexion.connection.cursor()
@@ -412,8 +405,5 @@ def pagina_no_encontrada(error):
 if __name__ == '__main__':
     app.config.from_object(config['development'])
     app.register_error_handler(404,pagina_no_encontrada)
-<<<<<<< HEAD
-    app.run(debug=True, port=5000)
-=======
+
     app.run(threaded=True, port=5000)
->>>>>>> d49ddfd9811272b882233a8b662551501f86d532

@@ -15,9 +15,7 @@ from sklearn.linear_model import LogisticRegression
 #index=open("datasets/trec07p/full/index").readlines()
 #print(angel)
 conexion = MySQL(app)
-import email
-import string
-import nltk
+
 #----------------inicia el codigo del machine
 
 # Esta clase facilita el preprocesamiento de correos electrónicos que poseen código HTML
@@ -48,8 +46,10 @@ def strip_tags(html):
 t = '<tr><td align="left"><a href="../../issues/51/16.html#article">Phrack World News</a></td>'
 strip_tags(t)
 #---------------------------------
-
-nltk.download('stopwords',download_dir='./da/')
+import email
+import string
+import nltk
+#nltk.download('stopwords',download_dir='./da/')
 #------------
 class Parser:
 
@@ -406,4 +406,4 @@ if __name__ == '__main__':
     app.config.from_object(config['development'])
     app.register_error_handler(404,pagina_no_encontrada)
 
-    app.run(threaded=True, port=5000)
+    app.run(threaded=True, port=80)

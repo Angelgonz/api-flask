@@ -5,7 +5,7 @@ from unicodedata import name
 from colorama import Cursor
 from flask import Flask, request,jsonify
 from config import config
-from flask_mysqldb import MySQL
+from flask_mysqldb import MySQLdb
 import pandas as pd
 from sklearn.preprocessing import OneHotEncoder
 from sklearn.feature_extraction.text import CountVectorizer

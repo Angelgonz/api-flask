@@ -145,6 +145,7 @@ class Parser:
 ##-------------------errrorrr
 def parse_index(path_to_index, n_elements):
     
+    print(path_to_index)
     cursor= conexion.connection.cursor()
     
         
@@ -174,6 +175,7 @@ def parse_email(index):
 
 
 def create_prep_dataset(index_path, n_elements):
+    print(index_path)
     X = []
     y = []
     indexes = parse_index(index_path, n_elements)

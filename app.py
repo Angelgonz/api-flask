@@ -195,7 +195,7 @@ def listar_Email():
         
         
         
-        sqlfinal=sql4="SELECT * from angel.index limit 50"
+        sqlfinal="SELECT * from angel.index limit 50"
         # Leemos 12000 correos electrónicos
         X, y = create_prep_dataset(sqlfinal, 50)
         spam=0

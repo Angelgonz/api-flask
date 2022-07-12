@@ -72,7 +72,7 @@ class Parser:
         
 
     def parse(self, email_path):
-        """Parse an email."""
+        #Parse an email.
         #with open(email_path, errors='ignore') as e:
          #   msg = email.message_from_file(e)
         #print("hola%ssaasca"%email_path)
@@ -102,7 +102,7 @@ class Parser:
         return None if not msg else self.get_email_content(msg)
 
     def get_email_content(self, msg):
-        """Extract the email content."""
+        #Extract the email content.
         subject = self.tokenize(msg['Subject']) if msg['Subject'] else []
         body = self.get_email_body(msg.get_payload(),
                                    msg.get_content_type())
@@ -113,7 +113,7 @@ class Parser:
                 "content_type": content_type}
 
     def get_email_body(self, payload, content_type):
-        """Extract the body of the email."""
+        #Extract the body of the email
         body = []
         if type(payload) is str and content_type == 'text/plain':
             return self.tokenize(payload)
@@ -126,8 +126,8 @@ class Parser:
         return body
 
     def tokenize(self, text):
-        """Transform a text string in tokens. Perform two main actions,
-        clean the punctuation symbols and do stemming of the text."""
+        ##Transform a text string in tokens. Perform two main actions,
+        #clean the punctuation symbols and do stemming of the text.
         for c in self.punctuation:
             text = text.replace(c, "")
         text = text.replace("\t", " ")

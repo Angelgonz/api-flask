@@ -67,7 +67,8 @@ class Parser:
             #--im.append(h.rstrip())
         
         self.stopwords =nltk.corpus.stopwords.words('english') #--set(im)
-        print(nltk.corpus.stopwords.words('english'))
+        #print(nltk.corpus.stopwords.words('english'))
+        print(a+=1)
         #print(nltk.corpus.stopwords.words('english'))
         self.punctuation = list(string.punctuation)
         

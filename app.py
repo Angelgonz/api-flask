@@ -192,6 +192,25 @@ def create_prep_dataset(index_path, n_elements):
 @app.route('/mail',methods=['GET'])
 def listar_Email():
     try:
+        
+        
+        
+        sqlfinal=sql4="SELECT * from angel.index limit 500"
+        # Leemos 12000 correos electrónicos
+        X, y = create_prep_dataset(sqlfinal, 500)
+        spam=0
+        inc=0
+        ham=0
+        for i in y:
+            #print(i)
+            inc+=1
+            
+            if inc>=1 and inc<=450:
+
+                if i=="spam":
+                    spam+=1
+                else:
+                    ham+=1
         dates="hola"
         
         

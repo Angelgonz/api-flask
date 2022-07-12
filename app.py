@@ -193,13 +193,13 @@ def parse_index(path_to_index, n_elements):
             cursor.execute(path_to_index)
             index=cursor.fetchall()
         #print(row)
-        except Exception as ex:
+    except Exception as ex:
             print(ex)
-        finally:
+    finally:
             if connection.is_connected():
             connection.close()
         #print("conexio terminada")
-
+    
     #cursor= conexion.connection.cursor()   
     #cursor.execute(path_to_index)
     #index=cursor.fetchall()

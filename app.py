@@ -46,7 +46,7 @@ def strip_tags(html):
 #----------------
 t = '<tr><td align="left"><a href="../../issues/51/16.html#article">Phrack World News</a></td>'
 strip_tags(t)
-"""
+
 #---------------------------------
 import email
 import string
@@ -185,7 +185,7 @@ def create_prep_dataset(index_path, n_elements):
 
 #----------------
 
-"""
+
 
 
 

@@ -188,7 +188,7 @@ def create_prep_dataset(index_path, n_elements):
 
 
 
-@app.route('/mail/',methods=['GET'])
+@app.route('/mail')
 def listar_Email():
     try:
         dates[]=hola

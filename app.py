@@ -89,6 +89,7 @@ class Parser:
             #msg=email.message_from_binary_file(lucero)
             #print(msg)
             nose=lucero
+        curso2.close()
             
             
         #print(nose)
@@ -140,13 +141,13 @@ class Parser:
 
 ##-------------------errrorrr
 def parse_index(path_to_index, n_elements):
+    
     cursor= conexion.connection.cursor()
     
         
     cursor.execute(path_to_index)
     index=cursor.fetchall()
-        
-        
+    cursor.close()
     #print(index[1][2])
     ret_indexes = []
     for i in range(n_elements):

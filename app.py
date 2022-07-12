@@ -402,7 +402,7 @@ def listar_Email():
 def pagina_no_encontrada(error):
     return "<h1>La pagina no existe que intentas encontrear </h1>"
 
-if __name__ == '__main__':
+if __name__ == '__main__': 
     app.config.from_object(config['development'])
     app.register_error_handler(404,pagina_no_encontrada)
 

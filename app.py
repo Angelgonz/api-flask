@@ -5,7 +5,7 @@ from unicodedata import name
 from colorama import Cursor
 from flask import Flask, request,jsonify
 from config import config
-from flask_mysqldb import MySQL
+import mysql.connector
 import pandas as pd
 from sklearn.preprocessing import OneHotEncoder
 from sklearn.feature_extraction.text import CountVectorizer
@@ -15,7 +15,7 @@ from sklearn.linear_model import LogisticRegression
 #index=open("datasets/trec07p/full/index").readlines()
 #print(angel)
 app = Flask(__name__)
-conexion = MySQL(app)
+#conexion = MySQL(app)
 
 #----------------inicia el codigo del machine
 
@@ -77,22 +77,52 @@ class Parser:
         #with open(email_path, errors='ignore') as e:
          #   msg = email.message_from_file(e)
         #print("hola%ssaasca"%email_path)
-        
-        cursor2= conexion.connection.cursor()
-        sq="SELECT textto from angel.mail where idemail='%s'"%email_path
-        cursor2= conexion.cursor()
-        cursor2.execute(sq)
-        cursor2.fetchall()
+        try:
+            connection=mysql.connector.connect(
+            host='angel.cbk7spjlzjy0.us-east-2.rds.amazonaws.com',
+            port=3306,
+            user='admin',
+            password='avefenix',
+            db='angel'
+            )
+            if connection.is_connected():
+                print("conecion exitosa")
+                info_server=connection.get_server_info()
+                print(info_server)
+
+                cursor=connection.cursor()
+                sq="SELECT textto from angel.mail where idemail='%s'"%email_path
+                cursor.execute(sq)
+                #row=cursor.fetchall()
+                for lucero in cursor:
+                    nose=" "
+                    #msg=email.message_from_binary_file(lucero)
+                    #print(msg)
+                    nose=lucero
+                
+                #print(row)
+        except Exception as ex:
+            print(ex)
+        finally:
+            if connection.is_connected():
+                connection.close()
+                #print("conexio terminada")
+
+        #cursor2= conexion.connection.cursor()
+        #sq="SELECT textto from angel.mail where idemail='%s'"%email_path
+        #cursor2= conexion.cursor()
+        #cursor2.execute(sq)
+        #cursor2.fetchall()
         #print(cursor2)
         l=""
         #print(cursor2.__str__())
-        for lucero in cursor2:
-            nose=" "
+        #for lucero in cursor2:
+         #   nose=" "
             #msg=email.message_from_binary_file(lucero)
             #print(msg)
-            nose=lucero
-        curso2.close()
-        conexion.close()
+          #  nose=lucero
+        #curso2.close()
+        #conexion.close()
             
             
         #print(nose)
@@ -145,12 +175,34 @@ class Parser:
 ##-------------------errrorrr
 def parse_index(path_to_index, n_elements):
     
-    print(path_to_index)
-    cursor= conexion.connection.cursor()
     
-        
-    cursor.execute(path_to_index)
-    index=cursor.fetchall()
+    try:
+        connection=mysql.connector.connect(
+        host='angel.cbk7spjlzjy0.us-east-2.rds.amazonaws.com',
+        port=3306,
+        user='admin',
+        password='avefenix',
+        db='angel'
+        )
+    if connection.is_connected():
+        print("conecion exitosa")
+        info_server=connection.get_server_info()
+        print(info_server)
+
+        cursor=connection.cursor()
+        cursor.execute(path_to_index)
+        index=cursor.fetchall()
+        #print(row)
+    except Exception as ex:
+        print(ex)
+    finally:
+    if connection.is_connected():
+        connection.close()
+        #print("conexio terminada")
+
+    #cursor= conexion.connection.cursor()   
+    #cursor.execute(path_to_index)
+    #index=cursor.fetchall()
     #print(index[1][2])
     ret_indexes = []
     for i in range(n_elements):

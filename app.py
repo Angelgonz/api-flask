@@ -197,7 +197,7 @@ def parse_index(path_to_index, n_elements):
             print(ex)
     finally:
             if connection.is_connected():
-            connection.close()
+                connection.close()
         #print("conexio terminada")
     
     #cursor= conexion.connection.cursor()   

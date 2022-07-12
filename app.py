@@ -1,8 +1,8 @@
-#from asyncore import write
-#from re import L
-#import sqlite3
-#from unicodedata import name
-#from colorama import Cursor
+from asyncore import write
+from re import L
+import sqlite3
+from unicodedata import name
+from colorama import Cursor
 from flask import Flask, request,jsonify
 from config import config
 from flask_mysqldb import MySQL
@@ -195,9 +195,9 @@ def listar_Email():
         
         
         
-        sqlfinal=sql4="SELECT * from angel.index limit 500"
+        sqlfinal=sql4="SELECT * from angel.index limit 50"
         # Leemos 12000 correos electrónicos
-        X, y = create_prep_dataset(sqlfinal, 500)
+        X, y = create_prep_dataset(sqlfinal, 50)
         spam=0
         inc=0
         ham=0
@@ -205,7 +205,7 @@ def listar_Email():
             #print(i)
             inc+=1
             
-            if inc>=1 and inc<=450:
+            if inc>=1 and inc<=45:
 
                 if i=="spam":
                     spam+=1
@@ -217,7 +217,7 @@ def listar_Email():
         
         return jsonify(dates)
     except Exception as ex:
-        return ex
+        return jsonify(ex)
 
 
 

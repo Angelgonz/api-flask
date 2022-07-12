@@ -195,7 +195,7 @@ def listar_Email():
         
         
         
-        return jsonify({dates})
+        return jsonify(dates)
     except Exception as ex:
         return ex
 

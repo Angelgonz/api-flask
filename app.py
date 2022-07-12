@@ -18,7 +18,7 @@ app = Flask(__name__)
 conexion = MySQL(app)
 
 #----------------inicia el codigo del machine
-"""
+
 # Esta clase facilita el preprocesamiento de correos electrónicos que poseen código HTML
 from html.parser import HTMLParser
 
@@ -46,6 +46,7 @@ def strip_tags(html):
 #----------------
 t = '<tr><td align="left"><a href="../../issues/51/16.html#article">Phrack World News</a></td>'
 strip_tags(t)
+"""
 #---------------------------------
 import email
 import string

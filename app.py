@@ -86,9 +86,9 @@ class Parser:
             db='angel'
             )
             if connection.is_connected():
-                print("conecion exitosa")
-                info_server=connection.get_server_info()
-                print(info_server)
+                #print("conecion exitosa")
+                #info_server=connection.get_server_info()
+                #print(info_server)
 
                 cursor=connection.cursor()
                 sq="SELECT textto from angel.mail where idemail='%s'"%email_path
@@ -184,20 +184,20 @@ def parse_index(path_to_index, n_elements):
         password='avefenix',
         db='angel'
         )
-    if connection.is_connected():
-        print("conecion exitosa")
-        info_server=connection.get_server_info()
-        print(info_server)
+        if connection.is_connected():
+            #print("conecion exitosa")
+            info_server=connection.get_server_info()
+            #print(info_server)
 
-        cursor=connection.cursor()
-        cursor.execute(path_to_index)
-        index=cursor.fetchall()
+            cursor=connection.cursor()
+            cursor.execute(path_to_index)
+            index=cursor.fetchall()
         #print(row)
-    except Exception as ex:
-        print(ex)
-    finally:
-    if connection.is_connected():
-        connection.close()
+        except Exception as ex:
+            print(ex)
+        finally:
+            if connection.is_connected():
+            connection.close()
         #print("conexio terminada")
 
     #cursor= conexion.connection.cursor()   

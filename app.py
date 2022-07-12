@@ -15,7 +15,7 @@ from sklearn.linear_model import LogisticRegression
 #index=open("datasets/trec07p/full/index").readlines()
 #print(angel)
 app = Flask(__name__)
-
+conexion = MySQL(app)
 
 #----------------inicia el codigo del machine
 
@@ -77,7 +77,7 @@ class Parser:
         #with open(email_path, errors='ignore') as e:
          #   msg = email.message_from_file(e)
         #print("hola%ssaasca"%email_path)
-        conexion = MySQL(app)
+        
         cursor2= conexion.connection.cursor()
         sq="SELECT textto from angel.mail where idemail='%s'"%email_path
         cursor2= conexion.cursor()
@@ -145,7 +145,6 @@ class Parser:
 ##-------------------errrorrr
 def parse_index(path_to_index, n_elements):
     
-    conexion = MySQL(app)
     cursor= conexion.connection.cursor()
     
         

@@ -5,7 +5,7 @@ from unicodedata import name
 from colorama import Cursor
 from flask import Flask, request,jsonify
 from config import config
-from flask_mysqldb import MySQLdb
+from flask_mysqldb import MySQL
 import pandas as pd
 from sklearn.preprocessing import OneHotEncoder
 from sklearn.feature_extraction.text import CountVectorizer
@@ -78,7 +78,7 @@ class Parser:
          #   msg = email.message_from_file(e)
         #print("hola%ssaasca"%email_path)
         
-        cursor2= conexion.connect.cursor()
+        cursor2= conexion.connection.cursor()
         sq="SELECT textto from angel.mail where idemail='%s'"%email_path
         cursor2= conexion.cursor()
         cursor2.execute(sq)
@@ -145,7 +145,7 @@ class Parser:
 ##-------------------errrorrr
 def parse_index(path_to_index, n_elements):
     
-    cursor= conexion.connect.cursor()
+    cursor= conexion.connection.cursor()
     
         
     cursor.execute(path_to_index)

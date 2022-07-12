@@ -51,7 +51,7 @@ strip_tags(t)
 import email
 import string
 import nltk
-#nltk.download('stopwords',download_dir='./da/')
+nltk.download('stopwords')
 #------------
 class Parser:
 

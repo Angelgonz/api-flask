@@ -52,8 +52,7 @@ import email
 import string
 import nltk
 nltk.download('stopwords')
-#------------
-porq=0
+#----------
 class Parser:
 
     def __init__(self):
@@ -69,8 +68,7 @@ class Parser:
         
         self.stopwords =nltk.corpus.stopwords.words('english') #--set(im)
         #print(nltk.corpus.stopwords.words('english'))
-        porq+=1
-        print(porq)
+     
         #print(nltk.corpus.stopwords.words('english'))
         self.punctuation = list(string.punctuation)
         

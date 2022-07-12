@@ -268,7 +268,46 @@ def listar_Email():
                     spam+=1
                 else:
                     ham+=1
-        dates="hola"
+        # Utilizamos 10000 correos electrónicos para entrenar el algoritmo y 2000 para realizar pruebas
+        X_train, y_train = X[:45], y[:45]
+        X_test, y_test = X[5:], y[5:]
+        #print("-------------------este es el train")
+        #print("")
+        #print(X_train)
+
+        #print("")
+        #print("este es la priueba")
+        #print(X_test)
+
+
+#----------------------------
+
+        vectorizer = CountVectorizer()
+        X_train = vectorizer.fit_transform(X_train)
+
+
+#-----------------------------
+
+
+        clf = LogisticRegression()
+        clf.fit(X_train, y_train)
+
+#-------------------------
+
+        X_test = vectorizer.transform(X_test)
+#---------------
+
+        y_pred = clf.predict(X_test)
+
+#------------------------
+        #print('Accuracy: {:.3f}'.format(accuracy_score(y_test, y_pred)))
+#--------------------------------
+#----------------------------app.run(threaded=True, port=5000)
+
+
+#---------------------
+        dates={'spam':spam,'ham':ham,'Prediccion':accuracy_score(y_test, y_pred)}
+        #dates="hola"
         
         
         

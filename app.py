@@ -150,8 +150,6 @@ def parse_index(path_to_index, n_elements):
         
     cursor.execute(path_to_index)
     index=cursor.fetchall()
-    cursor.close()
-    conexion.close()
     #print(index[1][2])
     ret_indexes = []
     for i in range(n_elements):
@@ -201,7 +199,7 @@ def listar_Email():
         
         
         sqlfinal="SELECT * from angel.index limit 50"
-        # Leemos 12000 correos electrónicos
+        # Leemocreate_prep_datasets 12000 correos electrónicos
         X, y = create_prep_dataset(sqlfinal, 50)
         spam=0
         inc=0
@@ -233,4 +231,4 @@ if __name__ == '__main__':
     app.config.from_object(config['development'])
     app.register_error_handler(404,pagina_no_encontrada)
 
-    app.run(debug=True)
+    app.run()

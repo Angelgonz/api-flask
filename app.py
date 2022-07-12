@@ -18,7 +18,7 @@ app = Flask(__name__)
 conexion = MySQL(app)
 
 #----------------inicia el codigo del machine
-
+"""
 # Esta clase facilita el preprocesamiento de correos electrónicos que poseen código HTML
 from html.parser import HTMLParser
 
@@ -184,18 +184,18 @@ def create_prep_dataset(index_path, n_elements):
 
 #----------------
 
+"""
 
 
 
-
-@app.route('/mail')
+@app.route('/mail',methods=['GET'])
 def listar_Email():
     try:
-        dates[]="hola"
+        dates="hola"
         
         
         
-        return jsonify(dates)
+        return jsonify({dates})
     except Exception as ex:
         return ex
 
@@ -208,4 +208,4 @@ if __name__ == '__main__':
     app.config.from_object(config['development'])
     app.register_error_handler(404,pagina_no_encontrada)
 
-    app.run(threaded=True, port=5000)
+    app.run(debug=True)

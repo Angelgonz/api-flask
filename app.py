@@ -78,7 +78,7 @@ class Parser:
          #   msg = email.message_from_file(e)
         #print("hola%ssaasca"%email_path)
         conexion = MySQL(app)
-        cursor2= conexion.cursor()
+        cursor2= conexion.connection.cursor()
         sq="SELECT textto from angel.mail where idemail='%s'"%email_path
         cursor2= conexion.cursor()
         cursor2.execute(sq)
@@ -146,7 +146,7 @@ class Parser:
 def parse_index(path_to_index, n_elements):
     
     conexion = MySQL(app)
-    cursor= conexion.cursor()
+    cursor= conexion.connection.cursor()
     
         
     cursor.execute(path_to_index)

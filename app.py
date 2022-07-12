@@ -58,13 +58,13 @@ class Parser:
 
         self.stemmer = nltk.PorterStemmer()
         #print(nltk.PorterStemmer())
-        o=open("da/corpora/stopwords/english").readlines()
+        #--o=open("da/corpora/stopwords/english").readlines()
         #print (o)
-        im=[]
-        for h in o:
-            im.append(h.rstrip())
+        #--im=[]
+        #---for h in o:
+            #--im.append(h.rstrip())
         
-        self.stopwords = set(im)
+        self.stopwords =nltk.corpus.stopwords.words('english') #--set(im)
         #print(nltk.corpus.stopwords.words('english'))
         #print(nltk.corpus.stopwords.words('english'))
         self.punctuation = list(string.punctuation)

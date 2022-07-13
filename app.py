@@ -253,9 +253,9 @@ def listar_Email():
         
         
         
-        sqlfinal="SELECT * from angel.index limit 220"
+        sqlfinal="SELECT * from angel.index limit 210"
         # Leemocreate_prep_datasets 12000 correos electrónicos
-        X, y = create_prep_dataset(sqlfinal, 220)
+        X, y = create_prep_dataset(sqlfinal, 210)
         spam=0
         inc=0
         ham=0
@@ -271,7 +271,7 @@ def listar_Email():
                     ham+=1
         # Utilizamos 10000 correos electrónicos para entrenar el algoritmo y 2000 para realizar pruebas
         X_train, y_train = X[:200], y[:200]
-        X_test, y_test = X[20:], y[20:]
+        X_test, y_test = X[10:], y[10:]
         #print("-------------------este es el train")
         #print("")
         #print(X_train)

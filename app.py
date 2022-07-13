@@ -263,15 +263,15 @@ def listar_Email():
             #print(i)
             inc+=1
             
-            if inc>=1 and inc<=210:
+            if inc>=1 and inc<=160:
 
                 if i=="spam":
                     spam+=1
                 else:
                     ham+=1
         # Utilizamos 10000 correos electrónicos para entrenar el algoritmo y 2000 para realizar pruebas
-        X_train, y_train = X[:200], y[:200]
-        X_test, y_test = X[10:], y[10:]
+        X_train, y_train = X[:160], y[:160]
+        X_test, y_test = X[50:], y[50:]
         #print("-------------------este es el train")
         #print("")
         #print(X_train)
